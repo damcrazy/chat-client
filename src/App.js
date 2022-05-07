@@ -1,0 +1,29 @@
+import './App.css';
+
+//hooks
+import useLocalStorage from './hooks/useLocalStorage';
+
+//components
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+import {ContactsProvider} from './contexts/ContactsProvider';
+import {ConversationsProvider} from './contexts/ConversationsProvider';
+
+function App() {
+
+
+
+  const [id,setId] = useLocalStorage('id');
+  const dashboard = (
+    <ContactsProvider>
+      <ConversationsProvider id={id}>
+      <Dashboard id={id}/>
+      </ConversationsProvider>
+    </ContactsProvider>
+  )
+  return (
+    id? dashboard:<Login id={setId}/> 
+  );
+}
+
+export default App;
