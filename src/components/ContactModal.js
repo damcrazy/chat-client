@@ -17,18 +17,18 @@ export default function ContactModal({ closeModal }) {
 
     return (
         <>
-            <Modal.Header closeButton>Create contact</Modal.Header>
-            <Modal.Body>
-                <Form onSubmit={handleSubmit}>
-                <Form.Group>
-                    <Form.Label>Enter Id</Form.Label>
-                    <Form.Control type="text" placeholder="eg: 12345afe" ref={idRef} required/>
+            <Modal.Header className='Modal-body' closeButton>Create contact</Modal.Header>
+            <Modal.Body className='Modal-body'>
+                <Form onSubmit={handleSubmit} >
+                <Form.Group className="form_group-1">
+                    <Form.Label className="form_label-1">Enter Id</Form.Label>
+                    <Form.Control className="form__input-1" type="text" placeholder="eg: 12345afe" ref={idRef} required/>
                 </Form.Group>
-                <Form.Group>
-                    <Form.Label>Enter Name</Form.Label>
-                    <Form.Control type="text" placeholder="eg: Abc" ref={nameRef} required/>
+                <Form.Group className="form_group-1">
+                    <Form.Label className="form_label-1">Enter Name</Form.Label>
+                    <Form.Control className="form__input-1" type="text" placeholder="eg: Abc" ref={nameRef} required/>
                 </Form.Group>
-                <Button type="submit" className="mt-2">Create</Button> 
+                <Button type="submit" className="mt-2 Modal-button yes">Create</Button> 
                 </Form>
             </Modal.Body>
         </>

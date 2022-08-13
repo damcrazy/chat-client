@@ -8,6 +8,7 @@
     display: flex;
     flex-grow: 1;
     overflow-x: hidden;
+    background-color: var(--greyLight-1);
 }
 .conversation-item {
     background-color: var(--greyLight-1) !important;
@@ -17,7 +18,8 @@
     justify-content: space-between;
     align-items: center;
     margin: 0 !important;
-
+    border-radius: 0 !important;
+    color: var(--greyDark) !important;
 
   
     &__icon {
@@ -44,15 +46,26 @@
       font-size: 1.6rem;
       color: var(--greyLight-3);
       cursor: pointer;
+
+      &:hover {
+        color: var(--primary);
+      }
     }
   }
 
   .active{
-    background-color: var(--primary) !important;
-    color: var(--white) !important;
+    
+    color: var(--primary) !important;
   }
 
   .conversation-item{
     display: flex !important;
     justify-content: space-between;
   }
+
+  .close{
+    background-color: var(--greyLight-1);
+    border: 0;
+    margin: 0;
+    
+}

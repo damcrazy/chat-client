@@ -4,7 +4,7 @@ import { useContacts } from '../contexts/ContactsProvider'
 import {useConversations} from '../contexts/ConversationsProvider'
 // import useLocalStorage from '../hooks/useLocalStorage'
 
-
+import DoneIcon from '@material-ui/icons/Done';
 export default function ConversationsModal({ closeModal}) {
 
     const [selectedContactIds,setSelectedContactIds] = useState([]);
@@ -32,22 +32,25 @@ export default function ConversationsModal({ closeModal}) {
 
     return (
         <>
-        <Modal.Header closeButton>Create Conversations</Modal.Header>
-            <Modal.Body>
+        <Modal.Header className='Modal-body' closeButton>Create Conversations</Modal.Header>
+            <Modal.Body className='Modal-body'>
             <Form onSubmit={handleSubmit}>
             {contacts.map(contact => (
-                <Form.Group key={contact.id}>
+                <Form.Group key={contact.id} className='form-group'>
                     <Form.Check
+                    id={contact.id}
+                    className='checkbox__1'
                     type="checkbox"
                     value={selectedContactIds.includes(contact.id)}
-                    label={contact.name}
-                    onChange={() =>  handleCheckboxChange(contact.id) }
-                />
+                    label={<DoneIcon className="icon"/>}
+                    onChange={() =>  handleCheckboxChange(contact.id)}
+                /><div className='label-custom'>{contact.name}</div>
                 </Form.Group>
 
             ))}
-            <Button type="submit" className="mt-2">Add Conversations</Button> 
+            <Button type="submit" className="mt-2 Modal-button yes">Add Conversations</Button> 
             </Form>
+            
         </Modal.Body>
     </>
     )

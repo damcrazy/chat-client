@@ -47,17 +47,19 @@ export default function Sidebar({id,setId}) {
                 </Tab.Pane>
             </Tab.Content>
         </Tab.Container>
-        <div className="m-4" ><h4 className="m-0">Your id</h4><br/>{id}<Button className="btn__secondary" onClick={() => {navigator.clipboard.writeText(id);
+        <div className="m-4" ><h4 className="m-0">Your id</h4><br/>{id}<Button className="btn__copy" onClick={() => {navigator.clipboard.writeText(id);
         }}>
         <FiCopy />
             </Button></div>
-        <Button className="w-100 rounded-0" onClick={() => {setModalOpen(true)}}>
+        <Button className="w-100 rounded-0 btn__primary " onClick={() => {setModalOpen(true)}}>
             New {activeKey === conv_key ? "conversation" : "contact"}
         </Button>
+        <button onClick={() => {setId("0")}} className="btn btn-light btn__secondary fixed-bottom"> logout </button>
         <Modal show={modalOpen} onHide={closeModal}>
             {activeKey === conv_key ? <ConversationsModal closeModal={closeModal}/> : <ContactModal closeModal={closeModal}/>}
         </Modal>
-    <button onClick={() => {setId("0")}} className="btn btn-light"> logout </button>
+    
+    
     </div>
     </>
   )

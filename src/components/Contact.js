@@ -8,9 +8,9 @@ export default function Contact() {
     const {contacts} = useContacts()
 
   return (
-    <ListGroup varient="flush">
+    <ListGroup varient="flush" className='group'>
         {contacts.map(contact => (
-            <ListGroup.Item key={contact.id}>
+            <ListGroup.Item key={contact.id} className="conversation-item">
                 {contact.name}
             </ListGroup.Item>
         ))}

@@ -14,9 +14,7 @@ html {
     box-sizing: border-box;
     background: var(--greyLight-1) !important;
 }
-.form_label{
-    color: var(--greyDark);
-}
+
 .contain{
     display: flex;
     justify-content: center;
@@ -26,12 +24,7 @@ html {
     padding: 0 !important;
     // margin: 0 !important;
 }
-.form_group{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
+
 .button-container{
     padding: 20px;
     display: flex;
@@ -53,12 +46,9 @@ html {
     transition: .3s ease;
   
     &__primary {
-      grid-column: 1 / 2;
       border: 0 !important;
-      grid-row: 4 / 5;
       background: var(--primary) !important;
-      box-shadow:inset .2rem .2rem 1rem var(--primary-light) , 
-                inset -.2rem -.2rem 1rem var(--primary-dark),
+      box-shadow:
                 $shadow !important;
       color: var(--greyLight-1) !important;
   
@@ -110,3 +100,12 @@ html {
     }
     
   }
+  .form_label{
+    color: var(--greyDark);
+}
+.form_group{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
