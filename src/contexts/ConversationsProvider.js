@@ -10,7 +10,7 @@ export function useConversations() {
 
 export function ConversationsProvider({ id, children }) {
 
-
+// console.log(id);
 
     const { contacts } = useContacts();
     const socket = useSocket();
@@ -45,15 +45,19 @@ export function ConversationsProvider({ id, children }) {
             const name = (contact && contact.name) || recipient;
             return { id: recipient, name };
         });
-        const messages = conversation.messages.map(messages => 
- 
+
+        // console.log(conversation.messages)
+
+        const messages = conversation.messages.map(message => 
             {
                 const contact = contacts.find((contact) => {
-                    return contact.id === messages.sender;
+                    return contact.id === message.sender;
                 });
-                const name = (contact && contact.name) || messages.sender;
-                const fromMe = id === messages.sender;
-                return { ...messages, senderName:name,fromMe };
+                const name = (contact && contact.name) || message.sender;
+                const fromMe = id === message.sender;
+                // console.log('%c%s', 'color: #007300', id);
+                // console.log('%c%s', 'color: #807160', message.sender);
+                return { ...message, senderName:name,fromMe };
             })
 
         const selected = index === selectedConversationIndex
@@ -89,8 +93,10 @@ export function ConversationsProvider({ id, children }) {
     // },[setConversations]);
 
     const addMessageToConversation = useCallback(({ recipients, text, sender }) => {
+      // console.log('%c%s', 'color: #006dcc', sender);
 
         setConversations(prevConversations => {
+          // console.log("this time")
           let madeChange = false
           const newMessage = { sender, text }
 
@@ -157,16 +163,32 @@ export function ConversationsProvider({ id, children }) {
 
 
     function sendMessage(recipients, text) {
+      // console.log(id)
         socket.emit('send-message', { recipients, text });
-        addMessageToConversation({recipients, text, id});
+        addMessageToConversation({recipients, text, sender:id});
     }
 
+    const [del,setDel] = useState(-1);
+
+    useEffect(() => {
+      console.log(del)
+        if(del == -1){
+            return;
+        } else {
+            setConversations(prevConversations => {
+                return prevConversations.filter((conversation,index) => {
+                    return index !== del;
+                } )
+            } )
+        }
+        setDel(-1);
+    } ,[del])
 
 
 
     return (
         <ConversationsContext.Provider
-            value={{ sendMessage,Conversations: formattedConversations, selectedConversation: formattedConversations[selectedConversationIndex], selectedConversationIndex: setSelectedConversationIndex,  createConversations }}
+            value={{ setDel: setDel,sendMessage,Conversations: formattedConversations, selectedConversation: formattedConversations[selectedConversationIndex], selectedConversationIndex: setSelectedConversationIndex,  createConversations }}
         >
             {children}
         </ConversationsContext.Provider>
