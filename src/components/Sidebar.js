@@ -23,20 +23,20 @@ export default function Sidebar({id,setId}) {
     }
   return (
       <>
-    <div style={{width: '250px',borderRight: '1px solid'}}>
+    <div style={{width: '15vw',borderRight: '1px solid'}} className="sidebar">
         <Tab.Container activeKey={activeKey} onSelect={setActiveKey}>
             <Nav variant="tabs" className="justify-content-center segmented-control">
-                <Nav.Item>
-                    <Nav.Link className="segmented-control__1" eventKey={conv_key} style={{cursor:'pointer'}}>
+                <Nav.Item className="segmented-control__1">
+                    <Nav.Link  className="items" eventKey={conv_key} style={{cursor:'pointer', borderRadius:'1rem'}}>
                     conversations
                     </Nav.Link>
                 </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link className="segmented-control__2" eventKey={contact_key} style={{cursor:'pointer'}} >
+                <Nav.Item className="segmented-control__2">
+                    <Nav.Link className="items" eventKey={contact_key} style={{cursor:'pointer', borderRadius:'1rem'}} >
                         contacts
                     </Nav.Link>
                 </Nav.Item>
-                <div class="segmented-control__color"></div>
+                {/* <div class="segmented   -control__color"></div> */}
             </Nav>
             <Tab.Content className="border-right overflow-auto flex-grow-1">
                 <Tab.Pane eventKey={conv_key} >
