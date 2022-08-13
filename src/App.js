@@ -11,24 +11,21 @@ import { ConversationsProvider } from './contexts/ConversationsProvider';
 import { SocketProvider } from './contexts/SocketProvider';
 
 function App() {
-
-
-
-  const [id, setId] = useLocalStorage('id');
+  const [id, setId] = useLocalStorage('id',"0");
   const dashboard = (
     <>
     {/* {id} */}
     <SocketProvider id={id}>
       <ContactsProvider>
         <ConversationsProvider id={id}>
-          <Dashboard id={id} />
+          <Dashboard id={id} setId={setId} />
         </ConversationsProvider>
       </ContactsProvider>
     </SocketProvider>
     </>
   )
   return (
-    id ? dashboard : <Login id={setId} />
+    id != "0"  ? dashboard : <Login id={setId} />
   );
 }
 

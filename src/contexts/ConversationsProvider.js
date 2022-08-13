@@ -89,9 +89,7 @@ export function ConversationsProvider({ id, children }) {
     // },[setConversations]);
 
     const addMessageToConversation = useCallback(({ recipients, text, sender }) => {
-        console.log('%c%s', 'color: #731d1d', sender);
-        console.log('%c%s', 'color: #f200e2', text);
-        console.log('%c%s', 'color: #1d5673', recipients);
+
         setConversations(prevConversations => {
           let madeChange = false
           const newMessage = { sender, text }

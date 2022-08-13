@@ -1,16 +1,7 @@
-.contain{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #fafafa;
-}
 
-.w-100>div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
+
+
+
+
+
+
