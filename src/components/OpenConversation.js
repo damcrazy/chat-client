@@ -2,6 +2,9 @@ import React,{useState,useCallback} from 'react'
 import {Form,InputGroup, Button} from 'react-bootstrap'
 import { useConversations } from '../contexts/ConversationsProvider';
 
+//css
+import './Styles/OpenConversation/openconversation.css'
+
 export default function OpenConversation() {
     const [text,setText] = useState('');
     const setRef = useCallback((node) =>{
@@ -20,14 +23,14 @@ export default function OpenConversation() {
 
 
   return (
-    <div className="d-flex flex-column flex-grow-1 ">
+    <div className="d-flex flex-column flex-grow-1 background ">
         <div className="flex-grow-1 overflow-auto">
             <div className="d-flex flex-column flex-grow-1  align-items-start justify-content-end p-3">
                 {selectedConversation.messages.map((message,index) => {
                     const lastMessage = selectedConversation.messages.length - 1 === index 
                     return (
                         <div ref={lastMessage? setRef : null} key={index} className={`d-flex my-1 flex-column px-2 ${message.fromMe? 'align-self-end' : ""}`}>
-                            <div className={`d-flex rounded px-2 py-1 ${message.fromMe ? 'bg-primary text-white': 'borders'} `}>
+                            <div className={` d-flex rounded px-2 py-1 ${message.fromMe ? ' chip': ' chip-1'} ` } >
                                 {message.text}
                             </div>
                             <div className={`text-muted small ${message.fromMe ? 'text-right' : ''}`}>{message.fromMe ? 'You' : message.senderName }</div>

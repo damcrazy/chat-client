@@ -1,6 +1,5 @@
-import React,{useEffect,useState} from 'react'
+import React,{useState} from 'react'
 import { ListGroup ,Modal, Button} from 'react-bootstrap'
-import CloseButton from 'react-bootstrap/CloseButton';
 import { useConversations } from '../contexts/ConversationsProvider'
 
 import './Styles/Conversations/conversations.css'

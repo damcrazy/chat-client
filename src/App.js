@@ -25,7 +25,7 @@ function App() {
     </>
   )
   return (
-    id != "0"  ? dashboard : <Login id={setId} />
+    id !== "0"  ? dashboard : <Login id={setId} />
   );
 }
 

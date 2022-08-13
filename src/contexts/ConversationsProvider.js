@@ -172,7 +172,7 @@ export function ConversationsProvider({ id, children }) {
 
     useEffect(() => {
       console.log(del)
-        if(del == -1){
+        if(del === -1){
             return;
         } else {
             setConversations(prevConversations => {
