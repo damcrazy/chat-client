@@ -4,20 +4,30 @@
   $inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2), 
   inset -.2rem -.2rem .5rem var(--white);
   
+
+  .sidebar{
+    border-color: var(--greyLight-3) !important;
+  }
+
+
 .segmented-control {
     grid-column: 3 / 4;
     grid-row: 1 / 2;
     // width: 20.4rem;
     // height: 4rem;
     box-shadow: $shadow;
-    border-radius: 1rem;
+    // border-radius: 1rem !important;
     display: flex;
     align-items: center;
     position: relative;
     transition: all .5s ease;
     color: var(--primary) !important;
-  
+    display: flex;
+
+    
+
     &__1, &__2 {
+    margin: 0.3rem;
       width: 6.8rem;
       height: 3.6rem;
     //   font-size: 1.4rem;
@@ -27,6 +37,7 @@
       cursor: pointer;
       color: var(--greyDark) !important;
       transition: all .5s ease;
+      background-color: var(--greyLight-1) !important;
   
       &:hover { color: var(--primary) !important; }
     }
@@ -42,7 +53,7 @@
     }
   }
   
-  .segmented-control__1:active ~ .segmented-control__color {
+  .segmented-control__1:focus ~ .segmented-control__color {
     transform: translateX(0);
     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
@@ -50,3 +61,32 @@
     transform: translateX(6.8rem);
     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
+
+  .items{
+    background-color: var(--greyLight-1) !important;
+
+    
+  }
+
+  .nav-link{
+    color: var(--greyDark) !important;
+
+  }
+
+  .nav-link.active{
+    color: var(--primary) !important;
+    // height: 3.4rem;
+    // width: 6.2rem;
+    // margin-left: .3rem;
+    border-radius: 1rem !important;
+    box-shadow: $inner-shadow;
+    pointer-events: none;
+  }
+
+
+.close{
+    background-color: var(--primary);
+    border: 0;
+    margin: 0;
+
+}

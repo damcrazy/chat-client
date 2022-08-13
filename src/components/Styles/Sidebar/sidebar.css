@@ -1,15 +1,20 @@
+.sidebar {
+  border-color: var(--greyLight-3) !important;
+}
+
 .segmented-control {
   grid-column: 3/4;
   grid-row: 1/2;
   box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
-  border-radius: 1rem;
   display: flex;
   align-items: center;
   position: relative;
   transition: all 0.5s ease;
   color: var(--primary) !important;
+  display: flex;
 }
 .segmented-control__1, .segmented-control__2 {
+  margin: 0.3rem;
   width: 6.8rem;
   height: 3.6rem;
   display: flex;
@@ -18,6 +23,7 @@
   cursor: pointer;
   color: var(--greyDark) !important;
   transition: all 0.5s ease;
+  background-color: var(--greyLight-1) !important;
 }
 .segmented-control__1:hover, .segmented-control__2:hover {
   color: var(--primary) !important;
@@ -32,7 +38,7 @@
   pointer-events: none;
 }
 
-.segmented-control__1:active ~ .segmented-control__color {
+.segmented-control__1:focus ~ .segmented-control__color {
   transform: translateX(0);
   transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
@@ -40,4 +46,25 @@
 .segmented-control__2:active ~ .segmented-control__color {
   transform: translateX(6.8rem);
   transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.items {
+  background-color: var(--greyLight-1) !important;
+}
+
+.nav-link {
+  color: var(--greyDark) !important;
+}
+
+.nav-link.active {
+  color: var(--primary) !important;
+  border-radius: 1rem !important;
+  box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+  pointer-events: none;
+}
+
+.close {
+  background-color: var(--primary);
+  border: 0;
+  margin: 0;
 }/*# sourceMappingURL=sidebar.css.map */
