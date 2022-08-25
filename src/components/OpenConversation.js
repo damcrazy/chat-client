@@ -4,6 +4,8 @@ import { useConversations } from '../contexts/ConversationsProvider';
 
 //css
 import './Styles/OpenConversation/openconversation.css'
+import SendIcon from '@material-ui/icons/Send';
+
 
 export default function OpenConversation() {
     const [text,setText] = useState('');
@@ -15,6 +17,7 @@ export default function OpenConversation() {
 
     function handleSubmit(e) {
         e.preventDefault();
+        if (text === '') return;
         sendMessage(selectedConversation.recipients.map(r => r.id), text);
 
         setText('');
@@ -40,9 +43,11 @@ export default function OpenConversation() {
         </div>
         </div>
         <Form onSubmit={handleSubmit}>
-            <Form.Group>
-                <InputGroup className="p-2">
+            <Form.Group className="form_group">
+                <InputGroup className="p-2" >
                     <Form.Control
+                    placeholder="Enter your message..."
+                    className="form__input"
                     as="textarea"
                     value={text}
                     onChange={e => setText(e.target.value)}
@@ -50,7 +55,7 @@ export default function OpenConversation() {
                     onKeyDown={(e) => {if(e.key === 'Enter') handleSubmit(e)}}
                     required />
                     {/* <InputGroup.Append> */}
-                        <Button type="submit" style={{width: '5vw'}}>Send</Button>
+                        <Button className="btn___primary" type="submit" style={{width: '5vw'}}><SendIcon/></Button>
                     {/* </InputGroup.Append> */}
                 </InputGroup>
             </Form.Group>

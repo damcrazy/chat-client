@@ -68,6 +68,8 @@ export function ConversationsProvider({ id, children }) {
 
 
 
+
+
     // const addMessageToConversation = useCallback((recipients, text, sender ) =>{
     //     console.log('recipients-',recipients)
     //     setConversations((prevConversations) => {
@@ -171,7 +173,7 @@ export function ConversationsProvider({ id, children }) {
     const [del,setDel] = useState(-1);
 
     useEffect(() => {
-      console.log(del)
+      // console.log(del)
         if(del === -1){
             return;
         } else {

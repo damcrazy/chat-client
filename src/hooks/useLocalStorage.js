@@ -1,6 +1,8 @@
 import {useState,useEffect} from 'react'
 
+const MAIN = "App"
 const PREFIX = 'chat-';
+var main_arr = [];
 
 export default function useLocalStorage(key,initialValue) {
     const prefixedkey = PREFIX + key;
@@ -10,7 +12,11 @@ export default function useLocalStorage(key,initialValue) {
         if (typeof initialValue === 'function') return initialValue();
         else return initialValue;
     });
+    // var json = {
+    //     key1: key
+    // }
 
+    console.log(key +"="+ JSON.stringify(storedValue));
     useEffect(() => {
         localStorage.setItem(prefixedkey,JSON.stringify(storedValue));
     },[storedValue, prefixedkey]);
