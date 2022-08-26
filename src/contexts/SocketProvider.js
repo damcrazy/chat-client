@@ -11,7 +11,7 @@ export function SocketProvider({id,children}) {
   // console.log('id',id)
   const [socket,setSocket] = useState();
     useEffect(() => {
-        const newSocket = io('http://localhost:5000',
+        const newSocket = io('https://limitlesstalk.herokuapp.com/',
         {query:{id}})
         setSocket(newSocket)
         return () => { newSocket.close() }
