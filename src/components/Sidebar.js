@@ -7,7 +7,7 @@ import Contact from './Contact'
 import Conversations from './Conversations'
 import ContactModal from './ContactModal.js'
 import ConversationsModal from './ConversationsModal'
-import GlobalChat from './GlobalChat';
+// import GlobalChat from './GlobalChat';
 
 //css
 import './Styles/Sidebar/sidebar.css'
@@ -39,7 +39,7 @@ export default function Sidebar({id,setId}) {
                 </Nav.Item>
                 {/* <div class="segmented   -control__color"></div> */}
             </Nav>
-            <GlobalChat/>
+            {/* <GlobalChat/> */}
             <Tab.Content className="border-right overflow-auto flex-grow-1">
                 <Tab.Pane eventKey={conv_key} >
                     <Conversations/>
